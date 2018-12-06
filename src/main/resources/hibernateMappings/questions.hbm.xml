@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hari.edu.hibernate.pojo.Question" table="question">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="questionName" column="questionName"/>
+        <property name="questionPosterName" column="questionPosterName"/>
+        <!--<list name="answers" table="answer">
+            <key column="questionId"/>
+            <index column="answerCode"/>
+            <element column="answer" type="string"/>
+        </list>-->
+        <!--<bag name="answers" table="answer">
+            <key column="questionId"/>
+            <element column="answer" type="string"/>
+        </bag>-->
+        <!--<set name="answers" table="answer">
+            <key column="questionId"/>
+            <element column="answer" type="string"/>
+        </set>-->
+        <map name="answers" table="answers">
+            <key column="questionId"/>
+            <index column="answer" type="string"/>
+            <element column="answerPosterName" type="string"/>
+        </map>
+    </class>
+</hibernate-mapping>

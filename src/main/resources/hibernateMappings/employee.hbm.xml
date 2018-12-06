@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--<class name="hari.edu.hibernate.pojo.Employee" table="employee" discriminator-value="emp">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <discriminator column="type" type="string"/>
+        <property name="name"/>
+        <subclass name="hari.edu.hibernate.pojo.RegularEmployee" discriminator-value="regEmp">
+            <property name="salary"/>
+            <property name="bonus"/>
+        </subclass>
+        <subclass name="hari.edu.hibernate.pojo.ContractEmployee" discriminator-value="contractEmp">
+            <property name="dailyRate"/>
+            <property name="contractPeriodInMonths"/>
+        </subclass>
+    </class>-->
+    <!--<class name="hari.edu.hibernate.pojo.Employee" table="employee">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name"/>
+        <union-subclass name="hari.edu.hibernate.pojo.RegularEmployee" table="regEmp">
+            <property name="salary"/>
+            <property name="bonus"/>
+        </union-subclass>
+        <union-subclass name="hari.edu.hibernate.pojo.ContractEmployee" table="contractEmp">
+            <property name="dailyRate"/>
+            <property name="contractPeriodInMonths"/>
+        </union-subclass>
+    </class>-->
+    <class name="hari.edu.hibernate.pojo.Employee" table="employee">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name"/>
+        <joined-subclass name="hari.edu.hibernate.pojo.RegularEmployee" table="regEmp">
+            <key column="employeeId"/>
+            <property name="salary"/>
+            <property name="bonus"/>
+        </joined-subclass>
+        <joined-subclass name="hari.edu.hibernate.pojo.ContractEmployee" table="contractEmp">
+            <key column="employeeId"/>
+            <property name="dailyRate"/>
+            <property name="contractPeriodInMonths"/>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

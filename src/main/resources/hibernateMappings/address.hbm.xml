@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="hari.edu.hibernate.pojo">
+    <class name="Address" table="Address">
+        <id name="addressId" column="addressId">
+            <generator class="foreign">
+                <param name="property">resident</param>
+            </generator>
+        </id>
+        <property name="streetNumber" column="streetNumber"/>
+        <property name="streetName" column="streetName"/>
+        <property name="city" column="city"/>
+        <property name="country" column="country"/>
+        <property name="mailBoxNumber" column="mailBoxNumber"/>
+        <one-to-one name="resident" class="Resident" constrained="true"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="hari.edu.hibernate.pojo">
+    <class name="Resident" table="Resident">
+        <id name="residentId" column="residentId">
+            <generator class="increment"/>
+        </id>
+        <property name="name" column="name"/>
+        <one-to-one name="address" class="Address" cascade="all"/>
+    </class>
+</hibernate-mapping>

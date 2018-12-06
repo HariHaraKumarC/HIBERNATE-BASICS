@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="hari.edu.hibernate.pojo">
+    <class name="Contractor" table="Contractor">
+        <id name="contractorId" column="contractorId">
+            <generator class="increment"/>
+        </id>
+        <property name="contractorName" column="contractorName"/>
+        <property name="dailyRate" column="dailyRate"/>
+        <set name="employers" table="Employer_Contractor_Map" cascade="all" fetch="select" inverse="true" lazy="true">
+            <key column="contractorId_fk"/>
+            <many-to-many class="Employer" column="employerId_fk"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">admin</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="show_sql">true</property>
+        <!--<mapping resource="hibernateMappings/book.hbm.xml"/>-->
+        <!--<mapping resource="hibernateMappings/employee.hbm.xml"/>-->
+        <!--<mapping resource="hibernateMappings/questions.hbm.xml"/>-->
+        <!--<mapping resource="hibernateMappings/organisation.hbm.xml"/>-->
+        <!--<mapping class="hari.edu.hibernate.pojo.Book"/> -->
+        <!--<mapping class="hari.edu.hibernate.pojo.Employee"/>
+        <mapping class="hari.edu.hibernate.pojo.RegularEmployee"/>
+        <mapping class="hari.edu.hibernate.pojo.ContractEmployee"/>-->
+        <!--<mapping class="hari.edu.hibernate.pojo.Question"/>-->
+        <!--<mapping class="hari.edu.hibernate.pojo.Organisation"/>
+        <mapping class="hari.edu.hibernate.pojo.RegularWorkers"/>-->
+        <!--<mapping resource="hibernateMappings/employer.hbm.xml"/>
+        <mapping resource="hibernateMappings/contractor.hbm.xml"/>-->
+        <!--<mapping resource="hibernateMappings/resident.hbm.xml"/>
+        <mapping resource="hibernateMappings/address.hbm.xml"/>-->
+        <mapping class="hari.edu.hibernate.pojo.Resident"/>
+        <mapping class="hari.edu.hibernate.pojo.Address"/>
+        <!--<mapping resource="hibernateMappings/car.hbm.xml"/>-->
+        <!--<mapping class="hari.edu.hibernate.pojo.Car"/>
+        <mapping class="hari.edu.hibernate.pojo.Engine"/>-->
+    </session-factory>
+</hibernate-configuration>
